@@ -9,11 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class despegarResoultsPage {
+public class despegarResoultsPage{
 	private WebDriver driver = null;
 	WebDriverWait wait = null;
 	
-	@FindBy(xpath="//button[@class='eva-3-btn -md -primary -eva-3-fwidth']")  
+	@FindBy(xpath="//button[@class='eva-3-btn -md -primary -eva-3-fwidth']//em[@class='btn-text']")  
 	 private WebElement botonVerDetalle;
 	 
 	 public despegarResoultsPage (WebDriver driver) {
@@ -23,7 +23,7 @@ public class despegarResoultsPage {
 	 
 	 public void VerDetalles() {
 		 wait.until(ExpectedConditions.visibilityOf(botonVerDetalle));
-		 Assert.assertTrue(botonVerDetalle.isDisplayed(),"Error, no accede");
+		 Assert.assertTrue(botonVerDetalle.isDisplayed(),"Error, no accede a detalles");
 		 botonVerDetalle.click();
 	 }
 }
