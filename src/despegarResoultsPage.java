@@ -23,7 +23,7 @@ public class despegarResoultsPage {
 	 
 	 public void VerDetalles() {
 		 wait.until(ExpectedConditions.visibilityOf(botonVerDetalle));
-		 Assert.assertTrue(botonVerDetalle.isDisplayed(),"Error, no accede");
+		 Assert.assertTrue(botonVerDetalle.isDisplayed(),"Error, no accede a detalles");
 		 botonVerDetalle.click();
 	 }
 }
