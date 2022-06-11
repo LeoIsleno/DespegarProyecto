@@ -46,10 +46,10 @@ public class despegarAlojamientosPage {
 	  private WebElement abrirEdad;
 	  @FindBy(css="button.sbox5-box-button-ovr.sbox5-3-btn.-secondary.-icon.-lg .btn-text")  
 	  private WebElement botonBuscarResultados;
-	 /* @FindBys( {
+	  @FindBys( {
 		   @FindBy(xpath = "//select[@class='select']//option[@class='select-option']")
 		} )
-		private List<WebElement> edades;*/
+		private List<WebElement> edades;
 	  @FindBy(css="button.sbox5-box-button-ovr.sbox5-3-btn.-secondary.-icon.-lg .btn-text")  
 	  private WebElement botonBuscar;
 	  @FindBy(xpath="//select[@class='select']//option[@class='select-option'][6]")  
@@ -133,23 +133,21 @@ public class despegarAlojamientosPage {
 		  botonAumNiños.click();
 	  }
 	  
-	  public void EdadNiño() throws InterruptedException {
+	  public void EdadNiño(int i) throws InterruptedException {
 		  wait.until(ExpectedConditions.visibilityOf(abrirEdad));
 		  Assert.assertTrue(abrirEdad.isDisplayed(),"Error, no aumenta la cantidad de adultos");
 		  abrirEdad.click();
 		  
 		  Thread.sleep(1000);
 		  
-		  wait.until(ExpectedConditions.visibilityOf(edad));
-		 // Assert.assertTrue(((WebElement) edades).isDisplayed(),"Error, no aumenta la cantidad de adultos");
-		//  edades.get(i);
-		  edad.click();
+		 wait.until(ExpectedConditions.visibilityOfAllElements(edades));
+		 edades.get(i).click();
   }
 	  	  
 	  public despegarResoultsPage BuscarResultados(){
 		  wait.until(ExpectedConditions.visibilityOf(botonBuscarResultados));
 		  Assert.assertTrue(botonBuscarResultados.isDisplayed(),"Error, no aumenta la cantidad de adultos");
 		  botonBuscarResultados.click();
-		return new despegarResoultsPage(driver);
+		return new despegarResoultsPage(this.driver);
 	  }
 }
